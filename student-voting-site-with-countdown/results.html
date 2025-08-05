@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Election Results</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Live Vote Count</h2>
+    <ul id="resultsList"></ul>
+    <a href="index.html" class="btn">Back to Home</a>
+  </div>
+
+  <script>
+    const resultsList = document.getElementById('resultsList');
+    const candidates = ["Alice", "Brian", "Cynthia"];
+    candidates.forEach(name => {
+      const count = localStorage.getItem(name) || 0;
+      const li = document.createElement("li");
+      li.textContent = \`\${name}: \${count} votes\`;
+      resultsList.appendChild(li);
+    });
+  </script>
+</body>
+</html>
